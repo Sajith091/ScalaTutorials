@@ -1,15 +1,12 @@
 object Q1 extends App {
-  def main(args: Array[String]): Unit = {
-    val celsiusTemperatures = List(0.0, 10.0, 20.0, 30.0, 40.0)
-    val averageFahrenheit = calculateAverage(celsiusTemperatures)
-    println(s"Average Fahrenheit Temperature: $averageFahrenheit")
+  def calcAvg(temp: List[Double]) : Double = {
+    var fahr = temp.map(cels => (cels*9/5) + 32)
+    var total = fahr.reduce(_+_)
+    var avg = total / fahr.length
+    avg
   }
-}
-    def calculateAverage(tempList: List[Double]): Double = {
 
-      val fahrenheitTemperatures = tempList.map(celsius => (celsius * 9 / 5) + 32)
-      println(fahrenheitTemperatures)
-      val result = fahrenheitTemperatures.reduce((_ + _))
-      val avg = result / tempList.length.toDouble
-      avg
-  }
+  val temp_list = List(0.0, 10.0, 20.0, 30.0)
+  var x = calcAvg(temp_list)
+  println(x)
+}
